@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Plans | Spy Hosting - Premium Game Server Hosting</title>
+    <meta
+      name="description"
+      content="Choose your perfect hosting plan. Minecraft servers, Discord bot hosting, and VPS solutions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #00e5ff;
+        --primary-dark: #00b4d8;
+        --accent: #7c4dff;
+        --accent-light: #b388ff;
+        --bg-dark: #03050b;
+        --glass: rgba(255, 255, 255, 0.03);
+        --glass-border: rgba(255, 255, 255, 0.06);
+        --text-primary: #ffffff;
+        --text-secondary: #b0b0b0;
+        --text-muted: #6b7280;
+        --gradient-primary: linear-gradient(135deg, #00e5ff, #7c4dff);
+        --gradient-hero: linear-gradient(
+          135deg,
+          #00e5ff 0%,
+          #7c4dff 50%,
+          #e040fb 100%
+        );
+        --gradient-minecraft: linear-gradient(135deg, #4caf50, #8bc34a);
+        --gradient-discord: linear-gradient(135deg, #5865f2, #7289da);
+        --gradient-vps: linear-gradient(135deg, #ff6b35, #f7c948);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      #bgVideo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+        filter: brightness(0.2) contrast(1.1) saturate(0.7);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            ellipse at 20% 20%,
+            rgba(0, 229, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse at 80% 80%,
+            rgba(124, 77, 255, 0.06) 0%,
+            transparent 50%
+          ),
+          linear-gradient(
+            180deg,
+            rgba(3, 5, 11, 0.8) 0%,
+            rgba(3, 5, 11, 0.95) 100%
+          );
+        z-index: -1;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* Glow Orbs */
+      .glow-orb {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(100px);
+        pointer-events: none;
+        z-index: -1;
+        animation: orbFloat 10s ease-in-out infinite;
+      }
+      .glow-orb-1 {
+        width: 500px;
+        height: 500px;
+        background: rgba(0, 229, 255, 0.05);
+        top: 5%;
+        left: -15%;
+      }
+      .glow-orb-2 {
+        width: 600px;
+        height: 600px;
+        background: rgba(124, 77, 255, 0.04);
+        bottom: 10%;
+        right: -20%;
+        animation-delay: -5s;
+      }
+      .glow-orb-3 {
+        width: 400px;
+        height: 400px;
+        background: rgba(224, 64, 251, 0.03);
+        top: 40%;
+        left: 40%;
+        animation-delay: -3s;
+      }
+
+      @keyframes orbFloat {
+        0%,
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+        25% {
+          transform: translate(40px, -30px) scale(1.05);
+        }
+        50% {
+          transform: translate(-30px, 40px) scale(0.95);
+        }
+        75% {
+          transform: translate(30px, 30px) scale(1.02);
+        }
+      }
+
+      /* Header */
+      header {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(24px) saturate(1.2);
+        -webkit-backdrop-filter: blur(24px) saturate(1.2);
+        background: rgba(3, 5, 11, 0.65);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        z-index: 1000;
+      }
+      header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 72px;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 900;
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.3s ease;
+      }
+      .logo:hover {
+        transform: scale(1.02);
+      }
+      .logo-icon {
+        width: 38px;
+        height: 38px;
+        background: var(--gradient-primary);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .logo-icon::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        border-radius: 10px;
+      }
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+      .logo-text .spy {
+        background: var(--gradient-hero);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-size: 1.5rem;
+        font-weight: 900;
+        letter-spacing: 2px;
+      }
+      .logo-text .hosting {
+        font-size: 0.65rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        letter-spacing: 4px;
+        text-transform: uppercase;
+      }
+      nav {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      nav a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        padding: 8px 16px;
+        border-radius: 8px;
+      }
+      nav a:hover {
+        color: var(--primary);
+        background: rgba(0, 229, 255, 0.05);
+      }
+      nav a.nav-active {
+        color: var(--primary);
+        background: rgba(0, 229, 255, 0.08);
+      }
+      .nav-cta {
+        background: var(--gradient-primary) !important;
+        color: var(--bg-dark) !important;
+        font-weight: 700 !important;
+        padding: 10px 22px !important;
+        border-radius: 10px !important;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(0, 229, 255, 0.25);
+      }
+      .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 229, 255, 0.35) !important;
+      }
+      .mobile-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 8px;
+      }
+
+      /* Hero */
+      .plans-hero {
+        text-align: center;
+        padding: 80px 0 40px;
+        position: relative;
+      }
+      .plans-hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(0, 229, 255, 0.08);
+        border: 1px solid rgba(0, 229, 255, 0.15);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        color: var(--primary);
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        backdrop-filter: blur(10px);
+      }
+      .plans-hero h1 {
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        letter-spacing: -1px;
+      }
+      .plans-hero h1 .gradient-text {
+        background: var(--gradient-hero);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .plans-hero p {
+        color: var(--text-secondary);
+        font-size: 1.15rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Category Tabs */
+      .category-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        margin: 2rem 0 3rem;
+        flex-wrap: wrap;
+        padding: 0 1rem;
+      }
+      .category-tab {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 14px;
+        background: var(--glass);
+        border: 1px solid var(--glass-border);
+        color: var(--text-secondary);
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+      }
+      .category-tab:hover {
+        border-color: rgba(0, 229, 255, 0.2);
+        color: var(--text-primary);
+        transform: translateY(-2px);
+      }
+      .category-tab.active {
+        background: rgba(0, 229, 255, 0.08);
+        border-color: rgba(0, 229, 255, 0.3);
+        color: var(--primary);
+        box-shadow: 0 8px 25px rgba(0, 229, 255, 0.15);
+      }
+      .category-tab img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        filter: brightness(0.8);
+        transition: filter 0.3s ease;
+      }
+      .category-tab.active img {
+        filter: brightness(1);
+      }
+
+      /* Category Sections */
+      .category-section {
+        display: none;
+        animation: fadeIn 0.5s ease;
+      }
+      .category-section.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .category-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .category-header h2 {
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.5px;
+      }
+      .category-header p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+      }
+
+      /* Plan Grid */
+      .plan-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 4rem;
+      }
+
+      .plan-grid-7 {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      /* Plan Card Base */
+      .plan-card {
+        background: var(--glass);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(20px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .plan-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--gradient-primary);
+        transform: scaleX(0);
+        transition: transform 0.4s ease;
+      }
+      .plan-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      }
+      .plan-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .plan-card .tier-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+      }
+      .plan-card:hover .tier-icon {
+        transform: scale(1.1) rotate(-3deg);
+      }
+      .plan-card .tier-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        image-rendering: pixelated;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+      }
+
+      .plan-card .tier-name {
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 800;
+        margin-bottom: 0.3rem;
+      }
+      .plan-card .tier-subtitle {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 1rem;
+      }
+
+      .plan-price {
+        text-align: center;
+        margin: 1.2rem 0;
+      }
+      .plan-price .amount {
+        font-size: 2.5rem;
+        font-weight: 900;
+        line-height: 1;
+      }
+      .plan-price .currency {
+        font-size: 1.2rem;
+        font-weight: 600;
+        vertical-align: super;
+        color: var(--text-secondary);
+      }
+      .plan-price .period {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-weight: 400;
+      }
+
+      .plan-divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.06);
+        margin: 1rem 0;
+      }
+
+      .plan-specs {
+        list-style: none;
+        margin: 1rem 0;
+      }
+      .plan-specs li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 0;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .plan-specs li:last-child {
+        border-bottom: none;
+      }
+      .plan-specs li i {
+        width: 18px;
+        text-align: center;
+        font-size: 0.75rem;
+      }
+
+      .plan-features {
+        list-style: none;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .plan-features li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 5px 0;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+      }
+      .plan-features li i {
+        color: #00e676;
+        font-size: 0.7rem;
+        width: 16px;
+        text-align: center;
+      }
+
+      .plan-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        margin-top: 1.5rem;
+        cursor: pointer;
+        border: none;
+      }
+      .plan-btn-primary {
+        background: var(--gradient-primary);
+        color: var(--bg-dark);
+        box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+      }
+      .plan-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 229, 255, 0.35);
+      }
+      .plan-btn-outline {
+        background: transparent;
+        border: 1.5px solid rgba(0, 229, 255, 0.25);
+        color: var(--primary);
+      }
+      .plan-btn-outline:hover {
+        background: rgba(0, 229, 255, 0.06);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* Popular Badge */
+      .popular-badge {
+        position: absolute;
+        top: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gradient-primary);
+        color: var(--bg-dark);
+        padding: 4px 20px;
+        border-radius: 0 0 10px 10px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      /* Minecraft Tier Colors */
+      .plan-dirt {
+        border-color: rgba(139, 109, 63, 0.3);
+      }
+      .plan-dirt:hover {
+        border-color: rgba(139, 109, 63, 0.6);
+        box-shadow: 0 25px 50px rgba(139, 109, 63, 0.15);
+      }
+      .plan-dirt::before {
+        background: linear-gradient(135deg, #8b6d3f, #a0824a);
+      }
+      .plan-dirt .amount {
+        color: #8b6d3f;
+      }
+      .plan-dirt .plan-btn-outline {
+        border-color: rgba(139, 109, 63, 0.4);
+        color: #a0824a;
+      }
+      .plan-dirt .plan-btn-outline:hover {
+        background: rgba(139, 109, 63, 0.1);
+        border-color: #a0824a;
+      }
+      .plan-dirt .plan-specs li i {
+        color: #8b6d3f;
+      }
+
+      .plan-copper {
+        border-color: rgba(218, 125, 75, 0.3);
+      }
+      .plan-copper:hover {
+        border-color: rgba(218, 125, 75, 0.6);
+        box-shadow: 0 25px 50px rgba(218, 125, 75, 0.15);
+      }
+      .plan-copper::before {
+        background: linear-gradient(135deg, #da7d4b, #e8915a);
+      }
+      .plan-copper .amount {
+        color: #da7d4b;
+      }
+      .plan-copper .plan-btn-outline {
+        border-color: rgba(218, 125, 75, 0.4);
+        color: #da7d4b;
+      }
+      .plan-copper .plan-btn-outline:hover {
+        background: rgba(218, 125, 75, 0.1);
+        border-color: #da7d4b;
+      }
+      .plan-copper .plan-specs li i {
+        color: #da7d4b;
+      }
+
+      .plan-iron {
+        border-color: rgba(220, 220, 220, 0.25);
+      }
+      .plan-iron:hover {
+        border-color: rgba(220, 220, 220, 0.5);
+        box-shadow: 0 25px 50px rgba(220, 220, 220, 0.1);
+      }
+      .plan-iron::before {
+        background: linear-gradient(135deg, #b8b8b8, #dcdcdc);
+      }
+      .plan-iron .amount {
+        color: #dcdcdc;
+      }
+      .plan-iron .plan-btn-outline {
+        border-color: rgba(220, 220, 220, 0.3);
+        color: #dcdcdc;
+      }
+      .plan-iron .plan-btn-outline:hover {
+        background: rgba(220, 220, 220, 0.08);
+        border-color: #dcdcdc;
+      }
+      .plan-iron .plan-specs li i {
+        color: #dcdcdc;
+      }
+
+      .plan-gold {
+        border-color: rgba(255, 215, 0, 0.25);
+      }
+      .plan-gold:hover {
+        border-color: rgba(255, 215, 0, 0.5);
+        box-shadow: 0 25px 50px rgba(255, 215, 0, 0.15);
+      }
+      .plan-gold::before {
+        background: linear-gradient(135deg, #ffd700, #ffa500);
+      }
+      .plan-gold .amount {
+        color: #ffd700;
+      }
+      .plan-gold .plan-btn-outline {
+        border-color: rgba(255, 215, 0, 0.3);
+        color: #ffd700;
+      }
+      .plan-gold .plan-btn-outline:hover {
+        background: rgba(255, 215, 0, 0.08);
+        border-color: #ffd700;
+      }
+      .plan-gold .plan-specs li i {
+        color: #ffd700;
+      }
+
+      .plan-diamond {
+        border-color: rgba(0, 229, 255, 0.25);
+      }
+      .plan-diamond:hover {
+        border-color: rgba(0, 229, 255, 0.5);
+        box-shadow: 0 25px 50px rgba(0, 229, 255, 0.2);
+      }
+      .plan-diamond::before {
+        background: linear-gradient(135deg, #00e5ff, #4fc3f7);
+      }
+      .plan-diamond .amount {
+        color: #00e5ff;
+      }
+      .plan-diamond .plan-specs li i {
+        color: #00e5ff;
+      }
+
+      .plan-netherite {
+        border-color: rgba(124, 77, 255, 0.25);
+      }
+      .plan-netherite:hover {
+        border-color: rgba(124, 77, 255, 0.5);
+        box-shadow: 0 25px 50px rgba(124, 77, 255, 0.2);
+      }
+      .plan-netherite::before {
+        background: linear-gradient(135deg, #7c4dff, #b388ff);
+      }
+      .plan-netherite .amount {
+        color: #b388ff;
+      }
+      .plan-netherite .plan-btn-outline {
+        border-color: rgba(124, 77, 255, 0.3);
+        color: #b388ff;
+      }
+      .plan-netherite .plan-btn-outline:hover {
+        background: rgba(124, 77, 255, 0.1);
+        border-color: #b388ff;
+      }
+      .plan-netherite .plan-specs li i {
+        color: #b388ff;
+      }
+
+      .plan-bedrock {
+        border-color: rgba(224, 64, 251, 0.3);
+      }
+      .plan-bedrock:hover {
+        border-color: rgba(224, 64, 251, 0.6);
+        box-shadow: 0 25px 50px rgba(224, 64, 251, 0.2);
+      }
+      .plan-bedrock::before {
+        background: linear-gradient(135deg, #e040fb, #ff80ab);
+      }
+      .plan-bedrock .amount {
+        color: #e040fb;
+      }
+      .plan-bedrock .plan-specs li i {
+        color: #e040fb;
+      }
+
+      /* Discord Tier Colors */
+      .plan-python {
+        border-color: rgba(55, 118, 171, 0.3);
+      }
+      .plan-python:hover {
+        border-color: rgba(55, 118, 171, 0.6);
+        box-shadow: 0 25px 50px rgba(55, 118, 171, 0.15);
+      }
+      .plan-python::before {
+        background: linear-gradient(135deg, #3776ab, #ffd43b);
+      }
+      .plan-python .amount {
+        color: #3776ab;
+      }
+      .plan-python .plan-specs li i {
+        color: #3776ab;
+      }
+
+      .plan-nodejs {
+        border-color: rgba(104, 159, 56, 0.3);
+      }
+      .plan-nodejs:hover {
+        border-color: rgba(104, 159, 56, 0.6);
+        box-shadow: 0 25px 50px rgba(104, 159, 56, 0.15);
+      }
+      .plan-nodejs::before {
+        background: linear-gradient(135deg, #689f38, #8bc34a);
+      }
+      .plan-nodejs .amount {
+        color: #689f38;
+      }
+      .plan-nodejs .plan-specs li i {
+        color: #689f38;
+      }
+
+      .plan-bun {
+        border-color: rgba(251, 214, 15, 0.25);
+      }
+      .plan-bun:hover {
+        border-color: rgba(251, 214, 15, 0.5);
+        box-shadow: 0 25px 50px rgba(251, 214, 15, 0.15);
+      }
+      .plan-bun::before {
+        background: linear-gradient(135deg, #fbd60f, #ff8c00);
+      }
+      .plan-bun .amount {
+        color: #fbd60f;
+      }
+      .plan-bun .plan-specs li i {
+        color: #fbd60f;
+      }
+
+      .plan-java {
+        border-color: rgba(244, 128, 36, 0.3);
+      }
+      .plan-java:hover {
+        border-color: rgba(244, 128, 36, 0.6);
+        box-shadow: 0 25px 50px rgba(244, 128, 36, 0.15);
+      }
+      .plan-java::before {
+        background: linear-gradient(135deg, #f48024, #ed8b00);
+      }
+      .plan-java .amount {
+        color: #f48024;
+      }
+      .plan-java .plan-specs li i {
+        color: #f48024;
+      }
+
+      /* VPS Tier Colors */
+      .plan-nano {
+        border-color: rgba(0, 229, 255, 0.15);
+      }
+      .plan-nano:hover {
+        border-color: rgba(0, 229, 255, 0.4);
+        box-shadow: 0 25px 50px rgba(0, 229, 255, 0.1);
+      }
+      .plan-nano::before {
+        background: linear-gradient(135deg, #00e5ff, #4fc3f7);
+      }
+      .plan-nano .amount {
+        color: #00e5ff;
+      }
+      .plan-nano .plan-specs li i {
+        color: #00e5ff;
+      }
+
+      .plan-core {
+        border-color: rgba(76, 175, 80, 0.25);
+      }
+      .plan-core:hover {
+        border-color: rgba(76, 175, 80, 0.5);
+        box-shadow: 0 25px 50px rgba(76, 175, 80, 0.15);
+      }
+      .plan-core::before {
+        background: linear-gradient(135deg, #4caf50, #8bc34a);
+      }
+      .plan-core .amount {
+        color: #4caf50;
+      }
+      .plan-core .plan-specs li i {
+        color: #4caf50;
+      }
+
+      .plan-pulse {
+        border-color: rgba(255, 193, 7, 0.25);
+      }
+      .plan-pulse:hover {
+        border-color: rgba(255, 193, 7, 0.5);
+        box-shadow: 0 25px 50px rgba(255, 193, 7, 0.15);
+      }
+      .plan-pulse::before {
+        background: linear-gradient(135deg, #ffc107, #ff9800);
+      }
+      .plan-pulse .amount {
+        color: #ffc107;
+      }
+      .plan-pulse .plan-specs li i {
+        color: #ffc107;
+      }
+
+      .plan-quantum {
+        border-color: rgba(233, 30, 99, 0.25);
+      }
+      .plan-quantum:hover {
+        border-color: rgba(233, 30, 99, 0.5);
+        box-shadow: 0 25px 50px rgba(233, 30, 99, 0.15);
+      }
+      .plan-quantum::before {
+        background: linear-gradient(135deg, #e91e63, #f44336);
+      }
+      .plan-quantum .amount {
+        color: #e91e63;
+      }
+      .plan-quantum .plan-specs li i {
+        color: #e91e63;
+      }
+
+      .plan-titan {
+        border-color: rgba(156, 39, 176, 0.25);
+      }
+      .plan-titan:hover {
+        border-color: rgba(156, 39, 176, 0.5);
+        box-shadow: 0 25px 50px rgba(156, 39, 176, 0.15);
+      }
+      .plan-titan::before {
+        background: linear-gradient(135deg, #9c27b0, #7c4dff);
+      }
+      .plan-titan .amount {
+        color: #9c27b0;
+      }
+      .plan-titan .plan-specs li i {
+        color: #9c27b0;
+      }
+
+      .plan-apex {
+        border-color: rgba(255, 87, 34, 0.25);
+      }
+      .plan-apex:hover {
+        border-color: rgba(255, 87, 34, 0.5);
+        box-shadow: 0 25px 50px rgba(255, 87, 34, 0.15);
+      }
+      .plan-apex::before {
+        background: linear-gradient(135deg, #ff5722, #ff9800);
+      }
+      .plan-apex .amount {
+        color: #ff5722;
+      }
+      .plan-apex .plan-specs li i {
+        color: #ff5722;
+      }
+
+      .plan-infinity {
+        border-color: rgba(224, 64, 251, 0.3);
+      }
+      .plan-infinity:hover {
+        border-color: rgba(224, 64, 251, 0.6);
+        box-shadow: 0 25px 50px rgba(224, 64, 251, 0.2);
+      }
+      .plan-infinity::before {
+        background: linear-gradient(135deg, #e040fb, #7c4dff);
+      }
+      .plan-infinity .amount {
+        background: linear-gradient(135deg, #e040fb, #7c4dff);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .plan-infinity .plan-specs li i {
+        color: #e040fb;
+      }
+
+      /* Comparison Note */
+      .comparison-note {
+        text-align: center;
+        padding: 3rem 0;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+      .comparison-note a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .comparison-note a:hover {
+        text-decoration: underline;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: 2rem;
+      }
+      footer p {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .plan-grid-7 {
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 0 20px;
+        }
+        nav {
+          display: none;
+          position: fixed;
+          top: 72px;
+          left: 0;
+          right: 0;
+          background: rgba(3, 5, 11, 0.95);
+          backdrop-filter: blur(20px);
+          padding: 1.5rem;
+          flex-direction: column;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        nav.active {
+          display: flex;
+        }
+        .mobile-toggle {
+          display: block;
+        }
+        .plans-hero {
+          padding: 50px 0 20px;
+        }
+        .category-tabs {
+          gap: 0.5rem;
+        }
+        .category-tab {
+          padding: 10px 18px;
+          font-size: 0.85rem;
+        }
+        .category-tab img {
+          width: 22px;
+          height: 22px;
+        }
+        .plan-grid,
+        .plan-grid-7 {
+          grid-template-columns: 1fr;
+          max-width: 400px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+
+      /* Scroll to top */
+      .scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 48px;
+        height: 48px;
+        background: var(--gradient-primary);
+        border: none;
+        border-radius: 14px;
+        color: var(--bg-dark);
+        font-size: 1.2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+        z-index: 999;
+        box-shadow: 0 8px 25px rgba(0, 229, 255, 0.3);
+      }
+      .scroll-top.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+      .scroll-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(0, 229, 255, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline id="bgVideo">
+      <source
+        src="https://motionbgs.com/media/6069/minecraft-aquarium.960x540.mp4"
+        type="video/mp4"
+      />
+    </video>
+
+    <!-- Glow Orbs -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <a href="index.html" class="logo">
+          <div class="logo-icon"><i class="fas fa-user-secret"></i></div>
+          <div class="logo-text">
+            <span class="spy">SPY</span>
+            <span class="hosting">HOSTING</span>
+          </div>
+        </a>
+        <button class="mobile-toggle" id="mobileToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav id="mainNav">
+          <a href="index.html">Home</a>
+          <a href="plans.html" class="nav-active">Plans</a>
+          <a href="#" id="panelBtn"><i class="fas fa-server"></i> Panel</a>
+          <a href="#" id="discordBtn"><i class="fab fa-discord"></i> Discord</a>
+          <a href="start.html" class="nav-cta"
+            >Get Started <i class="fas fa-arrow-right"></i
+          ></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="plans-hero">
+        <div class="container">
+          <div class="plans-hero-badge">
+            <i class="fas fa-sparkles"></i>
+            <span>Simple, Transparent Pricing</span>
+          </div>
+          <h1>Choose Your <span class="gradient-text">Perfect Plan</span></h1>
+          <p>
+            From casual gaming to enterprise workloads — we've got the right
+            hosting solution for you.
+          </p>
+        </div>
+      </section>
+
+      <!-- Category Tabs -->
+      <div class="container">
+        <div class="category-tabs">
+          <div class="category-tab active" data-category="minecraft">
+            <img
+              src="https://www.pella.app/icons/minecraft.svg"
+              alt="Minecraft"
+            />
+            <span>Minecraft</span>
+          </div>
+          <div class="category-tab" data-category="discord">
+            <img
+              src="https://www.pella.app/icons/discord.svg"
+              alt="Discord Bot"
+            />
+            <span>Discord Bot</span>
+          </div>
+          <div class="category-tab" data-category="vps">
+            <img
+              src="https://www.pella.app/icons/world-wide-web.png"
+              alt="VPS"
+            />
+            <span>VPS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- MINECRAFT PLANS -->
+      <section class="category-section active" id="minecraft">
+        <div class="container">
+          <div class="category-header">
+            <h2>⛏️ Minecraft Server Hosting</h2>
+            <p>Choose your tier — from casual Dirt to unbreakable Bedrock</p>
+          </div>
+          <div class="plan-grid plan-grid-7">
+            <!-- Dirt -->
+            <div class="plan-card plan-dirt">
+              <div class="tier-icon">
+                <img
+                  src="https://ccvaults.com/assets/20.%20Blocks/18.%20Decoration/Dirt.png"
+                  alt="Dirt"
+                />
+              </div>
+              <div class="tier-name">Dirt</div>
+              <div class="tier-subtitle">Starter Tier</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">2.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 1 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 1 vCPU Core</li>
+                <li><i class="fas fa-hdd"></i> 5 GB NVMe SSD</li>
+                <li><i class="fas fa-users"></i> 5 Player Slots</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Instant Setup</li>
+                <li><i class="fas fa-check"></i> 24/7 Support</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy Server</a>
+            </div>
+
+            <!-- Copper -->
+            <div class="plan-card plan-copper">
+              <div class="tier-icon">
+                <img
+                  src="https://ccvaults.com/assets/20.%20Blocks/16.%20Copper/Copper_Block.png"
+                  alt="Copper"
+                />
+              </div>
+              <div class="tier-name">Copper</div>
+              <div class="tier-subtitle">Basic Tier</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">4.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 2 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 1 vCPU Core</li>
+                <li><i class="fas fa-hdd"></i> 10 GB NVMe SSD</li>
+                <li><i class="fas fa-users"></i> 10 Player Slots</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Instant Setup</li>
+                <li><i class="fas fa-check"></i> Custom JAR Support</li>
+                <li><i class="fas fa-check"></i> 24/7 Support</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy Server</a>
+            </div>
+
+            <!-- Iron -->
+            <div class="plan-card plan-iron">
+              <div class="tier-icon">
+                <img
+                  src="https://ccvaults.com/assets/20.%20Blocks/08.%20Material/Iron_Block.png"
+                  alt="Iron"
+                />
+              </div>
+              <div class="tier-name">Iron</div>
+              <div class="tier-subtitle">Standard Tier</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">7.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 4 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 2 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 20 GB NVMe SSD</li>
+                <li><i class="fas fa-users"></i> 25 Player Slots</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Free MySQL Database</li>
+                <li><i class="fas fa-check"></i> Custom JAR Support</li>
+                <li><i class="fas fa-check"></i> Daily Backups</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy Server</a>
+            </div>
+
+            <!-- Gold -->
+            <div class="plan-card plan-gold">
+              <div class="tier-icon">
+                <img
+                  src="https://ccvaults.com/assets/20.%20Blocks/08.%20Material/Gold_Block.png"
+                  alt="Gold"
+                />
+              </div>
+              <div class="tier-name">Gold</div>
+              <div class="tier-subtitle">Advanced Tier</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">12.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 8 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 3 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 40 GB NVMe SSD</li>
+                <li><i class="fas fa-users"></i> 50 Player Slots</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Priority DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Free MySQL Database</li>
+                <li><i class="fas fa-check"></i> Modpack Support</li>
+                <li><i class="fas fa-check"></i> Daily Backups</li>
+                <li><i class="fas fa-check"></i> Custom Domain</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy Server</a>
+            </div>
+
+            <!-- Diamond (Popular) -->
+            <div
+              class="plan-card plan-diamond"
+              style="transform: scale(1.02); z-index: 2"
+            >
+              <div class="popular-badge">MOST POPULAR</div>
+              <div class="tier-icon">
+                <img
+                  src="https://ccvaults.com/assets/20.%20Blocks/08.%20Material/Diamond_Block.png"
+                  alt="Diamond"
+                />
+              </div>
+              <div class="tier-name">Diamond</div>
+              <div class="tier-subtitle">Premium Tier</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">19.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 16 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 4 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 80 GB NVMe SSD</li>
+                <li><i class="fas fa-users"></i> 100 Player Slots</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Enterprise DDoS Shield</li>
+                <li><i class="fas fa-check"></i> Free MySQL Database</li>
+                <li><i class="fas fa-check"></i> All Modpacks Supported</li>
+                <li><i class="fas fa-check"></i> Hourly Backups</li>
+                <li><i class="fas fa-check"></i> Dedicated IP Address</li>
+                <li><i class="fas fa-check"></i> Priority Support</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-primary"
+                >Deploy Server <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Netherite -->
+            <div class="plan-card plan-netherite">
+              <div class="tier-icon">
+                <img
+                  src="https://ccvaults.com/assets/20.%20Blocks/37.%20Nether/Netherite_Block.png"
+                  alt="Netherite"
+                />
+              </div>
+              <div class="tier-name">Netherite</div>
+              <div class="tier-subtitle">Elite Tier</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">34.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 32 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 6 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 160 GB NVMe SSD</li>
+                <li><i class="fas fa-users"></i> 250 Player Slots</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Enterprise DDoS Shield</li>
+                <li><i class="fas fa-check"></i> Free MySQL + Redis</li>
+                <li><i class="fas fa-check"></i> Unlimited Modpacks</li>
+                <li><i class="fas fa-check"></i> Real-Time Backups</li>
+                <li><i class="fas fa-check"></i> Dedicated IP + Port</li>
+                <li><i class="fas fa-check"></i> Priority Discord Support</li>
+              </ul>
+              <a href="#" class="plan-btn plan-btn-outline">Deploy Server</a>
+            </div>
+
+            <!-- Bedrock -->
+            <div class="plan-card plan-bedrock">
+              <div class="tier-icon">
+                <img
+                  src="https://ccvaults.com/assets/20.%20Blocks/39.%20Admin/Bedrock.png"
+                  alt="Bedrock"
+                />
+              </div>
+              <div class="tier-name">Bedrock</div>
+              <div class="tier-subtitle">Ultimate Tier</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">59.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 64 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 8 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 320 GB NVMe SSD</li>
+                <li><i class="fas fa-users"></i> Unlimited Players</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Maximum DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Full Database Suite</li>
+                <li><i class="fas fa-check"></i> Unlimited Everything</li>
+                <li><i class="fas fa-check"></i> Instant Backups</li>
+                <li><i class="fas fa-check"></i> Multiple Dedicated IPs</li>
+                <li><i class="fas fa-check"></i> 24/7 Dedicated Manager</li>
+                <li><i class="fas fa-check"></i> Custom Panel Access</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-primary"
+                >Deploy Server <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DISCORD BOT PLANS -->
+      <section class="category-section" id="discord">
+        <div class="container">
+          <div class="category-header">
+            <h2>🤖 Discord Bot Hosting</h2>
+            <p>Reliable hosting for your Discord bots — choose your language</p>
+          </div>
+          <div class="plan-grid">
+            <!-- Python -->
+            <div class="plan-card plan-python">
+              <div class="tier-icon">
+                <img
+                  src="https://images.icon-icons.com/1508/PNG/512/python_104451.png"
+                  alt="Python"
+                  style="border-radius: 10px"
+                />
+              </div>
+              <div class="tier-name">Python</div>
+              <div class="tier-subtitle">discord.py • Pycord</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">3.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 512 MB RAM</li>
+                <li><i class="fas fa-microchip"></i> 1 vCPU Core</li>
+                <li><i class="fas fa-hdd"></i> 5 GB SSD Storage</li>
+                <li><i class="fas fa-robot"></i> 5 Bot Instances</li>
+                <li><i class="fas fa-clock"></i> 99.9% Uptime</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Python 3.11+ Pre-installed</li>
+                <li><i class="fas fa-check"></i> pip Package Manager</li>
+                <li><i class="fas fa-check"></i> 24/7 Always Online</li>
+                <li><i class="fas fa-check"></i> Auto-Restart on Crash</li>
+                <li><i class="fas fa-check"></i> Web Terminal Access</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy Bot</a>
+            </div>
+
+            <!-- NodeJs -->
+            <div
+              class="plan-card plan-nodejs"
+              style="transform: scale(1.02); z-index: 2"
+            >
+              <div class="popular-badge">MOST POPULAR</div>
+              <div class="tier-icon">
+                <img
+                  src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-icon-svg-download-png-1174935.png"
+                  alt="Node.js"
+                  style="border-radius: 10px"
+                />
+              </div>
+              <div class="tier-name">Node.js</div>
+              <div class="tier-subtitle">discord.js • Eris</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">4.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 1 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 1 vCPU Core</li>
+                <li><i class="fas fa-hdd"></i> 10 GB SSD Storage</li>
+                <li><i class="fas fa-robot"></i> 10 Bot Instances</li>
+                <li><i class="fas fa-clock"></i> 99.9% Uptime</li>
+              </ul>
+              <ul class="plan-features">
+                <li>
+                  <i class="fas fa-check"></i> Node.js 20 LTS Pre-installed
+                </li>
+                <li><i class="fas fa-check"></i> npm Package Manager</li>
+                <li><i class="fas fa-check"></i> 24/7 Always Online</li>
+                <li><i class="fas fa-check"></i> Auto-Restart on Crash</li>
+                <li><i class="fas fa-check"></i> Web Terminal Access</li>
+                <li><i class="fas fa-check"></i> Git Integration</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-primary"
+                >Deploy Bot <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Bun -->
+            <div class="plan-card plan-bun">
+              <div class="tier-icon">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_poHZD7zedIFVi_xyvSwkXCSsfmhNYElEQA&s"
+                  alt="Bun"
+                  style="border-radius: 10px"
+                />
+              </div>
+              <div class="tier-name">Bun</div>
+              <div class="tier-subtitle">Lightning Fast Runtime</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">5.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 1 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 2 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 10 GB SSD Storage</li>
+                <li><i class="fas fa-robot"></i> 10 Bot Instances</li>
+                <li><i class="fas fa-bolt"></i> Ultra-Fast Runtime</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Bun Runtime Pre-installed</li>
+                <li><i class="fas fa-check"></i> Blazing Fast Startup</li>
+                <li><i class="fas fa-check"></i> 24/7 Always Online</li>
+                <li><i class="fas fa-check"></i> Auto-Restart on Crash</li>
+                <li><i class="fas fa-check"></i> Web Terminal Access</li>
+                <li><i class="fas fa-check"></i> Git Integration</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy Bot</a>
+            </div>
+
+            <!-- Java -->
+            <div class="plan-card plan-java">
+              <div class="tier-icon">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_zZKx4f0YmjvOaUf3ZFInOdCBFBEHcR7pQg&s"
+                  alt="Java"
+                  style="border-radius: 10px"
+                />
+              </div>
+              <div class="tier-name">Java</div>
+              <div class="tier-subtitle">JDA • Discord4J</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">6.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 2 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 2 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 15 GB SSD Storage</li>
+                <li><i class="fas fa-robot"></i> 10 Bot Instances</li>
+                <li><i class="fas fa-clock"></i> 99.9% Uptime</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Java 21 LTS Pre-installed</li>
+                <li><i class="fas fa-check"></i> Maven & Gradle Support</li>
+                <li><i class="fas fa-check"></i> 24/7 Always Online</li>
+                <li><i class="fas fa-check"></i> Auto-Restart on Crash</li>
+                <li><i class="fas fa-check"></i> Web Terminal Access</li>
+                <li><i class="fas fa-check"></i> Git Integration</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy Bot</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VPS PLANS -->
+      <section class="category-section" id="vps">
+        <div class="container">
+          <div class="category-header">
+            <h2>🖥️ Virtual Private Servers</h2>
+            <p>Full root access, dedicated resources, and complete control</p>
+          </div>
+          <div class="plan-grid plan-grid-7">
+            <!-- Nano -->
+            <div class="plan-card plan-nano">
+              <div class="tier-icon">
+                <img
+                  src="https://www.pella.app/icons/world-wide-web.png"
+                  alt="VPS"
+                  style="border-radius: 10px; opacity: 0.7"
+                />
+              </div>
+              <div class="tier-name">Nano</div>
+              <div class="tier-subtitle">Entry Level</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">4.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 1 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 1 vCPU Core</li>
+                <li><i class="fas fa-hdd"></i> 20 GB NVMe SSD</li>
+                <li><i class="fas fa-network-wired"></i> 1 TB Bandwidth</li>
+                <li><i class="fas fa-globe"></i> 1 IPv4 Address</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Full Root Access</li>
+                <li><i class="fas fa-check"></i> Linux / Windows</li>
+                <li><i class="fas fa-check"></i> DDoS Protection</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy VPS</a>
+            </div>
+
+            <!-- Core -->
+            <div class="plan-card plan-core">
+              <div class="tier-icon">
+                <img
+                  src="https://www.pella.app/icons/world-wide-web.png"
+                  alt="VPS"
+                  style="border-radius: 10px; opacity: 0.7"
+                />
+              </div>
+              <div class="tier-name">Core</div>
+              <div class="tier-subtitle">Basic</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">8.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 2 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 1 vCPU Core</li>
+                <li><i class="fas fa-hdd"></i> 40 GB NVMe SSD</li>
+                <li><i class="fas fa-network-wired"></i> 2 TB Bandwidth</li>
+                <li><i class="fas fa-globe"></i> 1 IPv4 Address</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Full Root Access</li>
+                <li><i class="fas fa-check"></i> Linux / Windows</li>
+                <li><i class="fas fa-check"></i> DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Weekly Backups</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy VPS</a>
+            </div>
+
+            <!-- Pulse -->
+            <div class="plan-card plan-pulse">
+              <div class="tier-icon">
+                <img
+                  src="https://www.pella.app/icons/world-wide-web.png"
+                  alt="VPS"
+                  style="border-radius: 10px; opacity: 0.7"
+                />
+              </div>
+              <div class="tier-name">Pulse</div>
+              <div class="tier-subtitle">Standard</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">14.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 4 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 2 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 80 GB NVMe SSD</li>
+                <li><i class="fas fa-network-wired"></i> 4 TB Bandwidth</li>
+                <li><i class="fas fa-globe"></i> 1 IPv4 Address</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Full Root Access</li>
+                <li><i class="fas fa-check"></i> Linux / Windows</li>
+                <li><i class="fas fa-check"></i> DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Daily Backups</li>
+                <li><i class="fas fa-check"></i> Snapshot Support</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy VPS</a>
+            </div>
+
+            <!-- Quantum -->
+            <div class="plan-card plan-quantum">
+              <div class="tier-icon">
+                <img
+                  src="https://www.pella.app/icons/world-wide-web.png"
+                  alt="VPS"
+                  style="border-radius: 10px; opacity: 0.7"
+                />
+              </div>
+              <div class="tier-name">Quantum</div>
+              <div class="tier-subtitle">Advanced</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">24.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 8 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 4 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 160 GB NVMe SSD</li>
+                <li><i class="fas fa-network-wired"></i> 6 TB Bandwidth</li>
+                <li><i class="fas fa-globe"></i> 1 IPv4 Address</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Full Root Access</li>
+                <li><i class="fas fa-check"></i> Linux / Windows</li>
+                <li><i class="fas fa-check"></i> Enterprise DDoS Shield</li>
+                <li><i class="fas fa-check"></i> Daily Backups</li>
+                <li><i class="fas fa-check"></i> Snapshot Support</li>
+                <li><i class="fas fa-check"></i> Custom ISO Upload</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy VPS</a>
+            </div>
+
+            <!-- Titan -->
+            <div
+              class="plan-card plan-titan"
+              style="transform: scale(1.02); z-index: 2"
+            >
+              <div class="popular-badge">MOST POPULAR</div>
+              <div class="tier-icon">
+                <img
+                  src="https://www.pella.app/icons/world-wide-web.png"
+                  alt="VPS"
+                  style="border-radius: 10px; opacity: 0.7"
+                />
+              </div>
+              <div class="tier-name">Titan</div>
+              <div class="tier-subtitle">Professional</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">39.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 16 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 6 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 320 GB NVMe SSD</li>
+                <li><i class="fas fa-network-wired"></i> 8 TB Bandwidth</li>
+                <li><i class="fas fa-globe"></i> 2 IPv4 Addresses</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Full Root Access</li>
+                <li><i class="fas fa-check"></i> Linux / Windows</li>
+                <li><i class="fas fa-check"></i> Enterprise DDoS Shield</li>
+                <li><i class="fas fa-check"></i> Real-Time Backups</li>
+                <li><i class="fas fa-check"></i> Snapshot Support</li>
+                <li><i class="fas fa-check"></i> Custom ISO Upload</li>
+                <li><i class="fas fa-check"></i> Priority Support</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-primary"
+                >Deploy VPS <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <!-- Apex -->
+            <div class="plan-card plan-apex">
+              <div class="tier-icon">
+                <img
+                  src="https://www.pella.app/icons/world-wide-web.png"
+                  alt="VPS"
+                  style="border-radius: 10px; opacity: 0.7"
+                />
+              </div>
+              <div class="tier-name">Apex</div>
+              <div class="tier-subtitle">Enterprise</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">69.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 32 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 8 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 640 GB NVMe SSD</li>
+                <li><i class="fas fa-network-wired"></i> 12 TB Bandwidth</li>
+                <li><i class="fas fa-globe"></i> 4 IPv4 Addresses</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Full Root Access</li>
+                <li><i class="fas fa-check"></i> Linux / Windows</li>
+                <li><i class="fas fa-check"></i> Maximum DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Real-Time Backups</li>
+                <li><i class="fas fa-check"></i> Snapshot + Cloning</li>
+                <li><i class="fas fa-check"></i> Custom ISO Upload</li>
+                <li><i class="fas fa-check"></i> Dedicated Support Channel</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-outline">Deploy VPS</a>
+            </div>
+
+            <!-- Infinity -->
+            <div class="plan-card plan-infinity">
+              <div class="tier-icon">
+                <img
+                  src="https://www.pella.app/icons/world-wide-web.png"
+                  alt="VPS"
+                  style="border-radius: 10px; opacity: 0.7"
+                />
+              </div>
+              <div class="tier-name">Infinity</div>
+              <div class="tier-subtitle">Ultimate Power</div>
+              <div class="plan-price">
+                <span class="currency">$</span><span class="amount">119.99</span
+                ><span class="period">/mo</span>
+              </div>
+              <div class="plan-divider"></div>
+              <ul class="plan-specs">
+                <li><i class="fas fa-memory"></i> 64 GB RAM</li>
+                <li><i class="fas fa-microchip"></i> 16 vCPU Cores</li>
+                <li><i class="fas fa-hdd"></i> 1.2 TB NVMe SSD</li>
+                <li>
+                  <i class="fas fa-network-wired"></i> Unmetered Bandwidth
+                </li>
+                <li><i class="fas fa-globe"></i> 8 IPv4 Addresses</li>
+              </ul>
+              <ul class="plan-features">
+                <li><i class="fas fa-check"></i> Full Root Access</li>
+                <li><i class="fas fa-check"></i> Linux / Windows</li>
+                <li><i class="fas fa-check"></i> Maximum DDoS Protection</li>
+                <li><i class="fas fa-check"></i> Real-Time Backups</li>
+                <li><i class="fas fa-check"></i> Full Snapshot Suite</li>
+                <li><i class="fas fa-check"></i> Custom ISO Upload</li>
+                <li><i class="fas fa-check"></i> 24/7 Dedicated Manager</li>
+                <li><i class="fas fa-check"></i> SLA Guarantee</li>
+              </ul>
+              <a href="https://discord.gg/dCvCDfb252" class="plan-btn plan-btn-primary"
+                >Deploy VPS <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison Note -->
+      <div class="comparison-note">
+        <p>
+          Need help choosing? <a href="https://discord.gg/dCvCDfb252">Contact our team</a> for a custom
+          recommendation.By Joining Our discord!
+        </p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <p>
+          © 2025 Spy Hosting — All rights reserved. Premium game server hosting.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="/config.js"></script>
+    <script>
+      // Config loader
+      let siteConfig = {};
+      function loadConfig() {
+        if (window.siteData) {
+          siteConfig = window.siteData;
+          if (siteConfig.PANEL_URL)
+            document.getElementById("panelBtn").href = siteConfig.PANEL_URL;
+          if (siteConfig.DISCORD_INVITE)
+            document.getElementById("discordBtn").href =
+              siteConfig.DISCORD_INVITE;
+        } else {
+          setTimeout(loadConfig, 100);
+        }
+      }
+      loadConfig();
+
+      // Category Tabs
+      const tabs = document.querySelectorAll(".category-tab");
+      const sections = document.querySelectorAll(".category-section");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const category = tab.dataset.category;
+
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+
+          sections.forEach((s) => {
+            s.classList.remove("active");
+            if (s.id === category) {
+              s.classList.add("active");
+              // Re-trigger animations
+              const cards = s.querySelectorAll(".plan-card");
+              cards.forEach((card, i) => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(30px)";
+                setTimeout(() => {
+                  card.style.opacity = "1";
+                  card.style.transform = card.style.transform = "";
+                }, i * 80);
+              });
+            }
+          });
+        });
+      });
+
+      // Mobile menu
+      document.getElementById("mobileToggle").addEventListener("click", () => {
+        const nav = document.getElementById("mainNav");
+        const icon = document.querySelector("#mobileToggle i");
+        nav.classList.toggle("active");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      });
+
+      // Scroll to top
+      window.addEventListener("scroll", () => {
+        const btn = document.getElementById("scrollTop");
+        if (window.scrollY > 400) {
+          btn.classList.add("visible");
+        } else {
+          btn.classList.remove("visible");
+        }
+      });
+
+      document.getElementById("scrollTop").addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      // Intersection Observer for card animations
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
+      );
+
+      document.querySelectorAll(".plan-card").forEach((card, i) => {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(30px)";
+        card.style.transition = `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${
+          i * 0.08
+        }s`;
+        observer.observe(card);
+      });
+    </script>
+  </body>
+</html>
